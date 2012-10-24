@@ -4,7 +4,7 @@
 ##  Q
 ##  gap> R := GradedRing( Q * "T1..6" );
 ##  Q[T1,T2,T3,T4,T5,T6]
-##  gap> a := GradedLeftSubmodule( "T1*T2+T3*T4+T5*T6", R );
+##  gap> a := GradedLeftSubmodule( "T1*T6+T3*T4+T5*T6", R );
 ##  <A principal torsion-free (left) ideal given by a cyclic generator>
 ##  gap> Is_aFace( [ 1 .. 8 ], a );
 ##  true

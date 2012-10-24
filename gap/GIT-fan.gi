@@ -91,7 +91,7 @@ InstallMethod( OrbitCones,
         [ IsGradedSubmoduleRep and ConstructedAsAnIdeal, IsInt ],
         
   function( a, i )
-    local R, Q, r, afaces, Qafaces, cones, Cl;
+    local R, Q, r, afaces, Qafaces, Qafaces_duplicate_free, face, cones, Cl;
     
     R := HomalgRing( a );
     
@@ -107,7 +107,7 @@ InstallMethod( OrbitCones,
     
     Qafaces := Set( Qafaces );
     
-    Qafaces := Filtered( Qafaces, a -> RankMat( a ) = i );
+    Qafaces := Filtered( Qafaces, j -> RankMat( j ) = i );
     
     cones := List( Qafaces, Cone );
     
@@ -159,7 +159,7 @@ InstallMethod( GIT_Cone,
         Error( "w (the second argument) must in contained in the cone spanned by the weights\n" );
     fi;
     
-    return Intersect( cones );
+    return IntersectionOfConelist( cones );
     
 end );
 
@@ -211,13 +211,14 @@ InstallMethod( GIT_Fan,
         fi;
     od;
     
-    mu := 100;
-    
     Lambda := [ lambda0 ];
     
     while inner_facets <> [ ] do
-        Info( InfoOrbifolds, 2, "Length( inner_facets ) = ", Length( inner_facets ) );
-        w := Remove( inner_facets, 1 );
+        
+        mu := 100;
+        
+        w := inner_facets[ 1 ];
+        
         v := w[2];
         w := w[1];
         
@@ -234,7 +235,7 @@ InstallMethod( GIT_Fan,
         for v in facets_normals do
             eta := ConeByEqualitiesAndInequalities( [ v ], facets_normals );
             w := RelativeInteriorRayGenerator( eta );
-            pos := First( [ 1 .. Length( inner_facets ) ], i ->  w * inner_facets[i][2] = 0 );
+            pos := First( [ 1 .. Length( inner_facets ) ], i ->  w * inner_facets[i][2] = 0 and inner_facets[i][1] in lambda );
             if ContainedInRelativeInterior( w, Qgamma ) then
                 if pos <> fail then
                     Remove( inner_facets, pos );
