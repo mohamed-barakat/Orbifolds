@@ -5,7 +5,6 @@
 ## gap> R := GradedRing( Q * "T1..8" );
 ## Q[T1,T2,T3,T4,T5,T6,T7,T8]
 ## (weights: yet unset)
-## gap>
 ## gap> SetWeightsOfIndeterminates( R, [ [ 1, 0, 1 ], [ 1, 1, 1 ], [ 0, 1, 1 ], [ 0, -1, 1 ], [ -1, -1, 1 ], [ -1, 0, 1 ], [ 2, 1, 1 ], [ -2, -1, 1 ] ] );
 ## gap> a := GradedLeftSubmodule( "T1*T6+T2*T5+T3*T4+T7*T8", R );
 ## <A graded principal torsion-free (left) ideal given by a cyclic generator>

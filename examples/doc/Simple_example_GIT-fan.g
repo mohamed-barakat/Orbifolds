@@ -1,4 +1,4 @@
-##  <#GAPDoc Label="GIT_Fan:example">
+##  <#GAPDoc Label="GIT_Fan:Simple_example">
 ##      <Example><![CDATA[
 ## gap> Q := HomalgFieldOfRationalsInDefaultCAS( );
 ## Q
