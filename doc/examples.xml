@@ -15,6 +15,12 @@ This chapter gives examples for the usage of this package.
 
 <#Include Label="OrbifoldV4TwistHochschild">
 
+ <Section Label="GIT_fan_examples">
+   <Heading>Examples for GIT-fans</Heading>
+   <#Include Label="GIT_Fan:Simple_example">
+   <#Include Label="GIT_Fan:example">
+   </Section>
+
 <!-- ############################################################ -->
 
 </Chapter>
